@@ -37,14 +37,13 @@
 - Pioneer new techniques in multimodal AI for more coherent and contextually aware systems
 
 ## My Repo will Interest you if you like:
-- Artificial Intelligence
+- Multimodal Learning and Retrieval-Augmented Generation (RAG)
+- Advanced Language Models and Multimodal AI
+- MLOps and Scalable AI Solutions
 - Computer Vision
 - Machine Learning
 - Pattern Recognition
 - Brain Computer Interface
-- MLOps and Scalable AI Solutions
-- Advanced Language Models and Multimodal AI
-- Multimodal Learning and Retrieval-Augmented Generation (RAG)
 
 Feel free to explore my projects and reach out for collaborations in cutting-edge AI research and development!
 
