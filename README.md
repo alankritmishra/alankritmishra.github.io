@@ -49,12 +49,9 @@ Feel free to explore my projects and reach out for collaborations in cutting-edg
 
 ## 📫 Connect with me:
 
-[<img align="left" alt="alankritmishra | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="alankritmishra | GitHub" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />][github]
-[<img align="left" alt="alankritmishra | Google Scholar" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/googlescholar.svg" />][googlescholar]
-[<img align="left" alt="alankritmishra | Email" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg" />][email]
-
-[linkedin]: https://linkedin.com/in/alankrit-mishra
-[github]: https://github.com/alankritmishra
-[googlescholar]: https://scholar.google.ca/citations?user=-1OUFPIAAAAJ
-[email]: mailto:alankrit6mishra@gmail.com
+<p align="left">
+  <a href="https://linkedin.com/in/alankrit-mishra" target="_blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="alankrit-mishra" height="30" width="40" /></a>
+  <a href="https://github.com/alankritmishra" target="_blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="alankritmishra" height="30" width="40" /></a>
+  <a href="https://scholar.google.ca/citations?user=-1OUFPIAAAAJ" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="alankrit mishra" height="30" width="40" /></a>
+  <a href="mailto:alankrit6mishra@gmail.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="alankrit6mishra@gmail.com" height="30" width="40" /></a>
+</p>
