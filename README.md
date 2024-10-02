@@ -8,10 +8,10 @@
 - 📑 Author of [**EEG-based Image Feature Extraction for Visual Classification using Deep Learning**](https://arxiv.org/abs/2209.13090), [Searching Efficient Models for HAR](https://dl.acm.org/doi/abs/10.1145/3502803.3502809), [On Optimizing Human-Machine Task Assignments](https://arxiv.org/abs/1509.07543)
 
 ## 🚀 Recent Achievements
-- Led development of 4 major ML projects for VN Secure, enhancing brand safety in social media content
+- Led development of 4 major ML projects for [VN Secure](https://www.viralnation.com/solution/secure/), enhancing brand safety in social media content
 - Engineered a multimodal AI pipeline, improving classification accuracy by 21%
 - Implemented MLOps practices, reducing model deployment time from 90 minutes to under 60 seconds
-- Processed over 7.6 million content items in 6 months using AI microservices
+- Developed and deployed ML models as AI microservices using Kafka and Kubernetes, enabling processing of over 7.6 million content items in 6 months (equivalent to over 23 years of manual analysis)
 
 ## 🛠 Skills
 - **Machine Learning & AI:** Deep Learning, NLP, Computer Vision, Multimodal Learning, Recommendation Systems, Pattern Recognition
