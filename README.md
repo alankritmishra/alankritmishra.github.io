@@ -23,7 +23,7 @@
 ## ⬆ What I'm up to
 - 🔨 I'm currently working on:
   - Designing and optimizing scalable vision models
-  - Advanced multimodal RAG systems for improved context understanding
+  - Advanced [multimodal RAG systems](RAG_Research\Multimodal_RAG_review.md) for improved context understanding
   - Multimodal vector embedding techniques for enhanced LLM performance
 - 👯 I'm looking to collaborate on Vision transformer / Brain machine Interface / Advanced AI related research.
 - 🎯 In the near future, I plan to...
@@ -37,7 +37,7 @@
 - Pioneer new techniques in multimodal AI for more coherent and contextually aware systems
 
 ## My Repo will Interest you if you like:
-- Multimodal Learning and Retrieval-Augmented Generation (RAG)
+- Multimodal Learning and [Retrieval-Augmented Generation (RAG)](RAG_Research\Multimodal_RAG_review.md)
 - Advanced Language Models and Multimodal AI
 - MLOps and Scalable AI Solutions
 - Computer Vision
