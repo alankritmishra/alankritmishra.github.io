@@ -2,25 +2,27 @@
 
 ## Introduction
 
-Hey there, AI enthusiasts and curious minds! 👋 Today, we're diving deep into the fascinating world of Multimodal Retrieval Augmented Generation (RAG) systems. If you're as excited as I am about the latest advancements in AI, you're in for a treat. We're going to unpack this complex topic and explore how it's revolutionizing the way machines understand and process diverse types of information.
+Hey there, AI enthusiasts and curious minds! 👋 Today, we're diving deep into the fascinating world of Multimodal RAG systems. In the rapidly evolving landscape of artificial intelligence, Retrieval Augmented Generation (RAG) has emerged as a powerful technique to enhance the capabilities of Large Language Models (LLMs). While traditional RAG systems primarily focus on text, the advent of Multimodal RAG opens up new frontiers by incorporating various data types such as images, tables, and potentially audio and video. This comprehensive review delves into the world of Multimodal RAG, exploring its components, architectures, implementation strategies, and future prospects.
 
 ## What is Multimodal RAG?
 
-Alright, let's start with the basics. Multimodal RAG is like giving AI a superhuman ability to understand and connect information from different sources - text, images, tables, and potentially even audio and video. Imagine having a conversation with an AI that can not only understand your words but also grasp the context from related images or data tables. That's the power of Multimodal RAG!
+Alright, let's start with the basics. Multimodal RAG is like giving AI a superhuman ability to understand and connect information from different sources - text, images, tables, and potentially even audio and video. Instead of relying solely on text-based knowledge, Multimodal RAG systems can leverage information from images, tables, and other data formats to generate more accurate and informative outputs.
+Imagine having a conversation with an AI that can not only understand your words but also grasp the context from related images or data tables. That's the power of Multimodal RAG!
 
 ### Why Should You Care?
+Consider a Wikipedia article about SpaceX. While the text provides valuable information, the accompanying images of rockets and infographics offer crucial visual context. Similarly, tables containing launch data or spacecraft specifications complement the narrative. Multimodal RAG aims to harness all these data types to provide a more holistic understanding and generate more informed responses.
 
 1. **Enhanced Understanding**: Multimodal RAG systems can provide more comprehensive and accurate responses by considering multiple types of data.
-2. **Versatility**: These systems can be applied to a wide range of industries, from healthcare to e-commerce.
+2. **Versatility**: These systems can be applied to a wide range of industries, from healthcare to e-commerce and banking.
 3. **Improved User Experience**: By leveraging diverse data types, Multimodal RAG can offer more intuitive and context-aware interactions.
 
-## The Building Blocks of Multimodal RAG
+## Core Components of Multimodal RAG
 
 Let's break down the key components that make Multimodal RAG tick:
 
 ### 1. Vector Embeddings
 
-At the heart of Multimodal RAG are vector embeddings. These are like the AI's way of understanding and representing different types of data in a common language. Here's how it works for different data types:
+At the heart of Multimodal RAG are vector embeddings - numerical representations that capture the semantic meaning of various data types. These embeddings allow the system to understand and compare different pieces of information across modalities.:
 
 - **Text Embeddings**: Generated using models like OpenAI's text embeddings.
 - **Image Embeddings**: Created using models like CLIP (Contrastive Language-Image Pre-training) [[5]](#5) or OpenAI's GPT-4 Mini [[6]](#6).
@@ -28,7 +30,7 @@ At the heart of Multimodal RAG are vector embeddings. These are like the AI's wa
 
 ### 2. Vector Search
 
-Once we have our embeddings, we need a way to efficiently search through them. This is where vector search comes into play. It's like having a super-fast librarian who can find related information across different types of media in the blink of an eye.
+Once we have our embeddings, we need a way to efficiently search through them. This is where vector search comes into play. Vector search enables the system to find relevant information based on the meaning rather than exact matches. This is crucial for multimodal data where the relevance might span across different data types. It's like having a super-fast librarian who can find related information across different types of media in the blink of an eye. 
 
 Check out this comparison of vector search approaches:
 
@@ -40,7 +42,7 @@ Check out this comparison of vector search approaches:
 | Memory Usage    | Low                     | Higher (due to index structures) |
 | Preprocessing   | None                    | Required (index building)        |
 
-Pro tip: Many vector database SDKs already have efficient ANN search algorithms built-in, so you don't have to implement them from scratch! [[1]](#1)
+Note: Many vector database SDKs already have efficient ANN search algorithms built-in, so you don't have to implement them from scratch! [[1]](#1)
 
 ### 3. Large Language Models (LLMs)
 
