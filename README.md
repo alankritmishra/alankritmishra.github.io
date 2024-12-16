@@ -37,7 +37,7 @@
 - Pioneer new techniques in multimodal AI for more coherent and contextually aware systems
 
 ## My Repo will Interest you if you like:
-- Multimodal Learning and [Retrieval-Augmented Generation (RAG)](RAG_Research/Multimodal_RAG_review)
+- Multimodal Learning and [Retrieval-Augmented Generation (RAG)](RAG_Research)
 - Advanced Language Models and Multimodal AI
 - MLOps and Scalable AI Solutions
 - Computer Vision
