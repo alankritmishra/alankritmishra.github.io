@@ -49,6 +49,7 @@ This will run independently in the background, ensuring that the data is always 
    a. **Rule-Based/String Manipulation:**  
       If the document follows a predictable semi-structured pattern (e.g., delimited fields, consistent headings, or known patterns), use regex or custom parsing logic.  
       for example:
+   
       ```python
         import re
         pattern = r"Recipe Name: (.*)\nCalories: (\d+)"
@@ -72,13 +73,13 @@ This will run independently in the background, ensuring that the data is always 
       - **Pros:** Balances the speed and reliability of rule-based methods with the flexibility of LLMs.  
       - **Cons:** Slightly more complex to implement and maintain.
    
-4. **Data Validation & Quality Control**  
+5. **Data Validation & Quality Control**  
    Once a preliminary structured output is produced, apply validation checks:  
    - **Schema Validation:** Verify that the structured data adheres to the defined schema (all required fields present, correct data types, etc.).  
    - **Deduplication & Consistency Checks:** Remove duplicate records and ensure there are no conflicting entries.  
    - **Error Handling:** In case of missing or malformed data, log errors or raise alerts for manual review.
 
-5. **Storing the Structured Data**  
+6. **Storing the Structured Data**  
    Depending on the use case and query patterns, consider suitable storage solutions:  
    - **Relational Databases (e.g., PostgreSQL, MySQL):** For tabular data with well-defined schemas.  
    - **NoSQL Databases (e.g., MongoDB, Elasticsearch):** For flexible schemas and quick full-text search.  
@@ -90,6 +91,7 @@ This will run independently in the background, ensuring that the data is always 
 
 ### Example flow
 Input Example (Unstructured Data):
+
 ```
 Apricot Chicken Tagine
 Prep: 10 minutes | Cook: 50 minutes | Total: 1 hour
@@ -102,6 +104,7 @@ Directions: ...
 ```
 
 Example structured data representation:
+
 ```json
 {
 "Recipe Name": "Apricot Chicken Tagine",
@@ -137,6 +140,7 @@ In addition to storing structured outputs (e.g., JSON format) in a SQL database,
 2. **Metadata Storage**:  
    - Attach key fields such as `RecipeName`, `Calories`, `PrepTime`, and `Ingredients` as metadata in the vector database.  
    - Example entry in vector database:
+     
      ```json
      {
        "id": "recipe_001",
@@ -188,6 +192,7 @@ Input:
 > "Find the recipe with the lowest calories and quick prep time."
 
 **Output**:  
+
 ```json
 {
   "Intent": "Find Lowest",
@@ -201,6 +206,7 @@ Input:
 1. **Primary LLM-Based Decision Making:**
    - Use the LLM to decide if the query requires calling an external agent (API, database, custom function, etc.) or can be resolved natively.
    - Employ zero-shot reasoning or a prompt template like:
+     
      ```
      Given the user query: [QUERY]
      Is this a high-complexity query requiring external tools, or can it be resolved within the current context? Respond with "Agent Required" or "No Agent Required."
@@ -214,6 +220,7 @@ Input:
 #### **Step 3: Triage for Ambiguous Queries**
 1. **Query Clarification via Triage Agent:**
    - Use an intermediate LLM (triage agent) that asks follow-up questions to resolve ambiguities. Example:
+     
      ```
      The query "[QUERY]" is ambiguous. Please clarify:
      - [Option 1]
@@ -259,7 +266,8 @@ For multi-condition queries that involve both **semantic search** and **structur
 **Execution Steps**:  
 1. **Query Parsing**:  
    - Extract intent, attributes, and conditions.  
-   - Parsed Output:  
+   - Parsed Output:
+     
      ```json
      {
        "Intent": "Find",
@@ -312,10 +320,12 @@ To leverage agents or tools for:
 1. **Text-to-SQL Translation**:
    - Use the LLM to generate SQL queries from natural language inputs for structured data retrieval.
    - Example query:
+     
      ```
      "Find all recipes under 300 calories that use chicken."
      ```
      Decomposed Query from stage 2 for context:
+     
      ```json
      {
        "Intent": "Find",
@@ -333,6 +343,7 @@ To leverage agents or tools for:
      ```
    - We can Utilize libraries like `LangChain` or `LlamaIndex` to integrate the text-to-SQL agent. or create a custom agent for this task with system prompt and few-shot examples.
    - System prompt as provided in LangChain:
+     
         ```
         You are a SQLite expert. Given an input question, first create a syntactically correct SQLite query to run, then look at the results of the query and return the answer to the input question.
         Unless the user specifies in the question a specific number of examples to obtain, query for at most 5 results using the LIMIT clause as per SQLite. You can order the results to return the most informative data in the database.
@@ -354,6 +365,7 @@ To leverage agents or tools for:
 
         ```
     - We might also also want to validate the generated SQL query before execution to avoid errors. this can be done some using validation prompts or by using a SQL query validator library like `sqlparse`. The validation prompt will be like:
+      
         ```
         Double check the user's {dialect} query for common mistakes, including:
         - Using NOT IN with NULL values
@@ -381,6 +393,7 @@ To leverage agents or tools for:
 2. **External Tool Execution**:
    - For tasks requiring computations (e.g., finding the average, minimum, or maximum values), execute custom Python scripts or external APIs.
    - Example:
+     
      ```python
      import pandas as pd
 
@@ -432,6 +445,7 @@ To leverage agents or tools for:
 2. Steps:
    - Parse query and identify as a SQL task.
    - Generate SQL query:
+     
      ```sql
      SELECT * FROM Recipes
      WHERE Calories < 300
@@ -501,6 +515,7 @@ To synthesize outputs from agents or tools into a natural, user-centric response
    - Example:
      - **Input Query**: "Find the top 3 low-calorie chicken recipes."
      - **Agent Output**:
+       
        ```json
        [
          {"Recipe": "Grilled Chicken Salad", "Calories": 150},
@@ -528,6 +543,7 @@ To synthesize outputs from agents or tools into a natural, user-centric response
 1. **Natural Language Output**:
    - Use LLM capabilities to convert raw outputs into well-phrased natural language.
    - **Prompt Template**:
+     
      ```
      Given the query: [QUERY]
      And the results: [AGENT OUTPUT]
@@ -563,6 +579,7 @@ To synthesize outputs from agents or tools into a natural, user-centric response
 #### **Workflow 1: Text-to-SQL Response**
 **Query**: "Find the top 5 highest-protein recipes under 300 calories."  
 **Agent Output**:
+
 ```json
 [
   {"Recipe": "Protein Shake", "Protein": 30, "Calories": 250},
