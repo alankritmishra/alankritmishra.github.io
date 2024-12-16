@@ -610,3 +610,17 @@ The proposed multi-stage pipeline effectively addresses the challenges of handli
 2. **Efficiency**: Uses caching, batching, and parallel execution to optimize resource utilization.
 3. **User-Centric Approach**: Focuses on clarity, personalization, and error handling to enhance user satisfaction.
 4. **Future Potential**: The modular framework allows for easy integration of advanced agents, APIs, or visualization tools.
+
+
+**Advantages**:
+
+*   This approach will allow the system to handle a wider range of queries, including those that require numerical reasoning.
+*   It is modular and scalable, making it easy to add new agents or tools as needed. 
+*   This approach leverages existing RAG systems, so we don't have to start from scratch.
+
+**Tradeoffs**:
+
+*   This approach may be more complex to implement than a standard RAG system.
+*   It may require more computational resources, especially for complex queries. 
+*   Small LLMs can be replaced with mid-size models with quantization to fit in the same resource allocation and added fine-tuning.
+
