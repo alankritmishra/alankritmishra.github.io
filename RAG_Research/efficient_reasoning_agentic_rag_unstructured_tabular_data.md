@@ -17,7 +17,7 @@ This stage of pipeline will be a preprocessing layer that will convert unstructu
 This will run independently in the background, ensuring that the data is always ready for the subsequent stages to process.
 
 <p align="center">
-  <img src="RAG_Research/Images/RAG_arc_for_Num_reasoning.png" />
+  <img src="Images/RAG_arc_for_Num_reasoning.png" />
 </p>
 
 
