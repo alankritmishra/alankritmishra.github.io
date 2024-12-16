@@ -16,6 +16,10 @@ This will involve a combination of data preprocessing, structured storage, and i
 This stage of pipeline will be a preprocessing layer that will convert unstructured or semi-structured data into a structured format that can be efficiently stored and queried by the subsequent stages of the system. This will involve extracting data from various sources such as PDFs, scanned images, and free-text documents, cleaning and normalizing the extracted data, and structuring it in a way that facilitates easy retrieval and analysis.
 This will run independently in the background, ensuring that the data is always ready for the subsequent stages to process.
 
+<p align="center">
+  <img src="RAG_Research/Images/RAG_arc_for_Num_reasoning.png" />
+</p>
+
 
 **Proposed Approaches and Tools:**
 
