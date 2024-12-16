@@ -27,6 +27,7 @@
   - Multimodal vector embedding techniques for enhanced LLM performance
 - 👯 I'm looking to collaborate on Vision transformer / Brain machine Interface / Advanced AI related research.
 - 🎯 In the near future, I plan to...
+  - Do a deep dive effiecient perceptron learning of reduced load on training foundational models.
   - Work on a project for AR vision reconstructive object detection
   - Start blogging my small POCs that I have completed this year
 
