@@ -657,14 +657,15 @@ The **Graph Agent** leverages a knowledge graph (KG) to manage queries requiring
    - Edges: Represent relationships like "contains," "belongs to," or "has calories."
 
    **Example Graph Representation**:
-   - Nodes:  
-     - Recipe: *Apricot Chicken Tagine*  
-     - Ingredient: *Chicken*, *Sour Cream*  
-     - Attribute: *Calories (240)*, *Region (South Africa)*  
-   - Edges:  
-     - *(Apricot Chicken Tagine) contains (Chicken)*  
-     - *(Apricot Chicken Tagine) has (240 calories)*  
-     - *(Apricot Chicken Tagine) belongs to (South Africa)*  
+   > Nodes:  
+   >  - Recipe: *Apricot Chicken Tagine*  
+   >  - Ingredient: *Chicken*, *Sour Cream*  
+   >  - Attribute: *Calories (240)*, *Region (South Africa)*  
+
+   > Edges:  
+   >  - *(Apricot Chicken Tagine) contains (Chicken)*  
+   >  - *(Apricot Chicken Tagine) has (240 calories)*  
+   >  - *(Apricot Chicken Tagine) belongs to (South Africa)*  
 
 2. **Query Execution**:  
    - Use graph query languages like **Cypher** (Neo4j), **SPARQL**, or **Gremlin** to retrieve insights.  
