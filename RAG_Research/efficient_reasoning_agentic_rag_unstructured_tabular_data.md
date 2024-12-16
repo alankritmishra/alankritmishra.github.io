@@ -1,12 +1,17 @@
 # Efficient Reasoning with Agentic RAG for Unstructured and Tabular Data
 
 **Goal:**  
-The primary objective of this document is to address the limitations of standard RAG systems when handling queries that involve numerical reasoning, using the recipe book example as a case study. The goal is to build a system that can efficiently answer queries like "Give me the recipe with the lowest calories" without significantly impacting response times.
-This will involve a combination of data preprocessing, structured storage, and intelligent query routing to optimize the LLM's performance in handling numerical analysis and comparisons using agent-based tools and structured data retrieval mechanisms.
+This document aims to address the limitations of standard RAG systems in handling numerical reasoning queries, using a recipe book as a case study. The goal is to build a system that can efficiently answer queries like "Give me the recipe with the lowest calories" without significantly impacting response times. This involves a combination of data preprocessing, structured storage, and intelligent query routing to optimize the LLM's performance in handling numerical analysis and comparisons using agent-based tools and structured data retrieval mechanisms.
+
+> Here is a high-level overview of the proposed pipeline:
+
+<p align="center">
+  <img src="Images/High_level_arc.png" />
+</p>
 
 **Key Stages:**
-1. **Data Ingestion & Pre-processing (Stage 1)**: Extracting and converting raw, unstructured or semi-structured data (e.g., PDFs, scanned documents, emails, HTML pages) into a consistent, structured format such as CSV or JSON. Standardizing and normalizing the data for efficient storage and retrieval and storing it in a structured database or index.  
-2. **Query Understanding & Routing (Stage 2)**: Interpreting the user’s input, determining whether to use an LLM (and do standard RAG processing) or direct it to an agent (tool) for specialized operations, and refining queries through Chain-of-Thought or further user disambiguation if needed.  
+1. **Data Ingestion & Pre-processing (Stage 1)**: Extracting and converting raw, unstructured, or semi-structured data (e.g., PDFs, scanned documents, emails, HTML pages) into a consistent, structured format such as CSV or JSON. Standardizing and normalizing the data for efficient storage and retrieval, and storing it in a structured database or index.
+2. **Query Understanding & Routing (Stage 2)**: Interpreting the user’s input, determining whether to use an LLM (and do standard RAG processing) or direct it to an agent (tool) for specialized operations, and refining queries through Chain-of-Thought or further user disambiguation if needed. 
 3. **Agent Execution (Stage 3)**: If required, calling an external tool/agent to process or retrieve additional information, perform computations, or run domain-specific logic.  
 4. **Response Generation (Stage 4)**: Integrating the agent’s output back into the primary LLM’s context and producing a coherent, user-friendly answer.
 
@@ -501,7 +506,7 @@ To leverage agents or tools for:
 
 ---
 
-### Stage 4: Response Generation
+## Stage 4: Response Generation
 
 In this final stage, the system integrates results from agents or tools back into the primary LLM’s context to generate a coherent, user-friendly response. The focus is on presenting actionable insights in natural language while optimizing for clarity, precision, and relevance to the user’s query.
 
@@ -751,16 +756,12 @@ The proposed multi-stage pipeline effectively addresses the challenges of handli
 3. **User-Centric Approach**: Focuses on clarity, personalization, and error handling to enhance user satisfaction.
 4. **Future Potential**: The modular framework allows for easy integration of advanced agents, APIs, or visualization tools.
 
-
 **Advantages**:
-
-*   This approach will allow the system to handle a wider range of queries, including those that require numerical reasoning.
-*   It is modular and scalable, making it easy to add new agents or tools as needed. 
-*   This approach leverages existing RAG systems, so we don't have to start from scratch.
+* This approach will allow the system to handle a wider range of queries, including those that require numerical reasoning.
+* It is modular and scalable, making it easy to add new agents or tools as needed.
+* This approach leverages existing RAG systems, so we don't have to start from scratch.
 
 **Tradeoffs**:
-
-*   This approach may be more complex to implement than a standard RAG system.
-*   It may require more computational resources, especially for complex queries. 
-*   Small LLMs can be replaced with mid-size models with quantization to fit in the same resource allocation and added fine-tuning.
-
+* This approach may be more complex to implement than a standard RAG system.
+* It may require more computational resources, especially for complex queries.
+* Small LLMs can be replaced with mid-size models with quantization to fit in the same resource allocation and added fine-tuning.
