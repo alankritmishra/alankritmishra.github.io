@@ -621,6 +621,124 @@ To synthesize outputs from agents or tools into a natural, user-centric response
    - Allow users to provide feedback on responses for continuous improvement.
 
 ---
+## Optional Agent Considerations
+
+In addition to the core agents described in **Stage 3**, certain optional agents can enhance the system’s capabilities for specific use cases. These agents are not essential for the baseline implementation but can add significant value for handling complex queries, improving reasoning, or enriching responses.
+
+
+### **Graph Agent**  
+
+**Objective**:  
+The **Graph Agent** leverages a knowledge graph (KG) to manage queries requiring relationship-based reasoning or semantic connections between entities. This agent is particularly useful for questions that involve understanding shared attributes, hierarchies, or contextual links between recipes, ingredients, and nutritional information.
+
+
+#### **Key Features of the Graph Agent**
+
+1. **Relationship-Based Reasoning**:  
+   - Enables querying of relationships between entities like recipes, ingredients, regions, and nutritional facts.
+   - Example Queries:
+     - "Find recipes similar to Apricot Chicken Tagine."
+     - "What ingredients are common between Chicken Curry and Roasted Eggplant Spread?"
+
+2. **Semantic Enrichment**:  
+   - Provides additional context or insights by traversing the graph.  
+   - Example: Linking regional cuisines to recipes (e.g., "Recipes from South Africa under 300 calories").
+
+3. **Cross-Entity Analysis**:  
+   - Handles multi-entity queries by identifying connections in the graph (e.g., shared ingredients or similar nutritional profiles).  
+   - Example: "Show me recipes using ingredients similar to sour cream."
+
+
+#### **Graph Agent Implementation**
+
+1. **Graph Construction**:  
+   - Build the graph from structured data ingested in **Stage 1**.
+   - Nodes: Represent entities such as recipes, ingredients, and regions.  
+   - Edges: Represent relationships like "contains," "belongs to," or "has calories."
+
+   **Example Graph Representation**:
+   - Nodes:  
+     - Recipe: *Apricot Chicken Tagine*  
+     - Ingredient: *Chicken*, *Sour Cream*  
+     - Attribute: *Calories (240)*, *Region (South Africa)*  
+   - Edges:  
+     - *(Apricot Chicken Tagine) contains (Chicken)*  
+     - *(Apricot Chicken Tagine) has (240 calories)*  
+     - *(Apricot Chicken Tagine) belongs to (South Africa)*  
+
+2. **Query Execution**:  
+   - Use graph query languages like **Cypher** (Neo4j), **SPARQL**, or **Gremlin** to retrieve insights.  
+   - Example Query: "Find recipes with chicken and fewer than 300 calories."  
+     **Cypher Query**:  
+     ```cypher
+     MATCH (r:Recipe)-[:CONTAINS]->(i:Ingredient {name: 'Chicken'})
+     WHERE r.calories < 300
+     RETURN r.name, r.calories
+     ```  
+
+3. **Integration with Existing Agents**:  
+   - Combine graph queries with SQL or semantic search for hybrid workflows.  
+   - Example: Use the graph to identify similar recipes, then retrieve detailed data from the SQL database.
+
+
+#### **Example Use Cases**
+
+1. **Find Similar Recipes**  
+   Query: "Show me recipes similar to Apricot Chicken Tagine."  
+   **Graph Query**:  
+   - Traverse the graph to identify recipes sharing two or more ingredients with *Apricot Chicken Tagine*.  
+   - Output: *Chicken Curry* and *Tagine with Apricots and Almonds*.
+
+2. **Regional Filtering**  
+   Query: "What are South African recipes under 300 calories?"  
+   **Graph Query**:  
+   - Match recipes with `Region: South Africa` and `Calories < 300`.  
+
+3. **Ingredient Analysis**  
+   Query: "What are recipes containing ingredients similar to sour cream?"  
+   **Graph Query**:  
+   - Traverse relationships to find recipes containing *yogurt* or *cream cheese* as substitutes.  
+
+---
+
+### **Implementation Tools**
+
+1. **Graph Database Solutions**:
+   - **Neo4j**: For scalable, production-ready graph databases with Cypher queries.  
+   - **Amazon Neptune**: Managed graph database for large-scale implementations.  
+   - **RDF and SPARQL**: For semantic web-based graph processing.  
+   - **GraphRAG**: A process involves extracting a knowledge graph out of raw text, building a community hierarchy, generating summaries for these communities, and then leveraging these structures when perform RAG-based tasks.
+
+2. **Integration Frameworks**:
+   - Use **LangChain** to integrate the Graph Agent into the overall pipeline.  
+   - **GraphQL** APIs to enable seamless querying from the primary LLM.
+
+#### **Optimizations for Graph Agent**
+
+1. **Precomputed Relationships**:  
+   - Cache commonly queried relationships (e.g., "recipes using chicken and spinach") to reduce latency.
+
+2. **Hierarchical Queries**:  
+   - Use graph traversals to handle hierarchical or category-based queries, like "Low-calorie recipes in African cuisine."
+
+3. **Hybrid Workflows**:  
+   - Use graph results to filter or refine SQL or vector search outputs.  
+   - Example: Graph identifies relevant recipes, SQL computes aggregates (e.g., calorie averages).
+
+
+
+#### **Potential Limitations**
+
+1. **Data Volume**:  
+   - Large graphs may require efficient indexing and distributed storage to handle scale.
+
+2. **Latency**:  
+   - Complex graph traversals may increase response times for deep queries.
+
+3. **Data Integration**:  
+   - Ensuring consistency between the graph and other data sources (SQL or vector database) may require periodic synchronization.
+
+---
 
 ## **Conclusion**
 
