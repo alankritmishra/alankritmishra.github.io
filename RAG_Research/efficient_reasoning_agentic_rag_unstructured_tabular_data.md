@@ -115,6 +115,7 @@ Example structured data representation:
 ```
 
 Output Example of data stored in a database:
+
 | Recipe Name            | Calories | Ingredients                            | Steps                   |
 | ---------------------- | -------- | -------------------------------------- | ----------------------- |
 | Apricot Chicken Tagine | 240      | ["½ cup sour cream", "1 tbsp parsley"] | ["Whisk...", "Cook..."] |
